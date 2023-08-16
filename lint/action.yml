@@ -16,8 +16,6 @@ inputs:
     
 runs:
   using: composite
-  env:
-    cmd_options: 
   steps:
     - run: rtl-actions/bin/action.lint \
            ${{ ${{ inputs.design_filelist }} && '--design_filelist ${{ inputs.design_filelist }} || '' }} \
