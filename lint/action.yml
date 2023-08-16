@@ -15,5 +15,6 @@ inputs:
     
 runs:
   using: composite
-  main:
-    ../bin/action.lint
+  steps:
+    - run: ../bin/action.lint --design_filelist ${{ inputs.design_filelist }} --design_top ${{ inputs.design_top }} --lint_rule ${{ inputs.lint_rule }}
+      shell: bash   
