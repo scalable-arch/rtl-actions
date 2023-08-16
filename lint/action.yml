@@ -15,8 +15,4 @@ inputs:
     
 runs:
   main:
-    \rm -rf work.lint
-    mkdir work.lint
-    cd work.lint
-    sg_shell 
-    cd ..  
+    ../bin/action.lint
