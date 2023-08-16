@@ -16,11 +16,13 @@ inputs:
     
 runs:
   using: composite
-  cmd_options: ""
+  env:
+    cmd_options: ""
   steps:
     - if ${{ inputs.design_filelist }}
       cmd_options: ${cmd_options} --design_filelist ${{ inputs.design_filelist }}
     - if ${{ inputs.design_top }}
       cmd_options: ${cmd_options} --design_top ${{ inputs.design_top }}
-    - run: rtl-actions/bin/action.lint ${cmd_options}
+    - run: echo ${cmd_options} |
+      rtl-actions/bin/action.lint ${cmd_options}
       shell: bash
