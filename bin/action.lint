@@ -1,0 +1,7 @@
+#!/bin/bash
+
+\rm -rf work.lint
+mkdir work.lint
+cd work.lint
+sg_shell < ${ACTION_HOME}/spyglass_lint/rtl_signoff.tcl
+cd ..
