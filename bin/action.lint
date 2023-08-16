@@ -1,5 +1,21 @@
 #!/bin/bash
 
+TEMP=$(getopt --options f:t: --longoptions filelist:,top: -- "$@")
+
+if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+
+# Note the quotes around '$TEMP': they are essential!
+eval set -- "$TEMP"
+
+while true; do
+  case "$1" in
+    -f | --filelist ) echo "AA"; export DESIGN_FILELIST="$2"; shift 2 ;;
+    -t | --top ) echo "BB"; export DESIGN_TOP="$2"; shift 2 ;;
+    -- ) shift; break ;;
+    * ) echo "Unsupported option $1" >&2; exit 1 ;;
+  esac
+done
+
 \rm -rf work.lint
 mkdir work.lint
 cd work.lint
