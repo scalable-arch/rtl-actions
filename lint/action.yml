@@ -1,1 +1,22 @@
+name: 'RTL: lint'
+description: 'Lint test (checking programmatic and stylistic errors) using Synopsys Spyglass with sign-off rules'
+author: 'Jungrae Kim <dale40@gmail.com>'
 
+inputs:
+  design_filelist:
+    description: "The path to the filelist containing all the design file. The path is relative to the root of the repository"
+    default:
+  design_top:
+    description: "The name of the top-level design"
+    default:
+  lint_rule:
+    description: "Lint rules to apply"
+    default:
+    
+runs:
+  main:
+    \rm -rf work.lint
+    mkdir work.lint
+    cd work.lint
+    sg_shell 
+    cd ..  
