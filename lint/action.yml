@@ -18,6 +18,6 @@ runs:
   using: composite
   steps:
     - run: rtl-actions/bin/action.lint \
-           ${{ ${{ inputs.design_filelist }} && '--design_filelist ${{ inputs.design_filelist }} || '' }} \
-           ${{ ${{ inputs.design_top }} && '--design_top ${{ inputs.design_to }} || '' }}
+           ${{ ${{ inputs.design_filelist }} && '--design_filelist ${{ inputs.design_filelist }}' || '' }} \
+           ${{ ${{ inputs.design_top }} && '--design_top ${{ inputs.design_to }}' || '' }}
       shell: bash
