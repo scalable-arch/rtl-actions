@@ -5,16 +5,22 @@ author: 'Jungrae Kim <dale40@gmail.com>'
 inputs:
   design_filelist:
     description: "The path to the filelist containing all the design file. The path is relative to the root of the repository"
+    type: string
+    required: false
     default:
   design_top:
     description: "The name of the top-level design"
-    default:
-  lint_rule:
-    description: "Lint rules to apply"
+    type: string
+    required: false
     default:
     
 runs:
   using: composite
+  cmd_options: ""
   steps:
-    - run: actions/action.lint --design_filelist ${{ inputs.design_filelist }} --design_top ${{ inputs.design_top }} --lint_rule ${{ inputs.lint_rule }}
-      shell: bash   
+    - if ${{ inputs.design_filelist }}
+      cmd_options: ${cmd_options} --design_filelist ${{ inputs.design_filelist }}
+    - if ${{ inputs.design_top }}
+      cmd_options: ${cmd_options} --design_top ${{ inputs.design_top }}
+    - run: rtl-actions/bin/action.lint ${cmd_options}
+      shell: bash
