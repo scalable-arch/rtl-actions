@@ -14,5 +14,6 @@ inputs:
     default:
     
 runs:
+  using: composite
   main:
     ../bin/action.lint
