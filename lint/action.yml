@@ -17,12 +17,9 @@ inputs:
 runs:
   using: composite
   env:
-    cmd_options: ""
+    cmd_options: 
   steps:
-    - if ${{ inputs.design_filelist }}
-      cmd_options: ${cmd_options} --design_filelist ${{ inputs.design_filelist }}
-    - if ${{ inputs.design_top }}
-      cmd_options: ${cmd_options} --design_top ${{ inputs.design_top }}
-    - run: echo ${cmd_options} |
-      rtl-actions/bin/action.lint ${cmd_options}
+    - run: rtl-actions/bin/action.lint \
+           ${{ ${{ inputs.design_filelist }} && '--design_filelist ${{ inputs.design_filelist }} || '' }} \
+           ${{ ${{ inputs.design_top }} && '--design_top ${{ inputs.design_to }} || '' }}
       shell: bash
