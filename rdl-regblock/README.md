@@ -3,12 +3,14 @@
 Most HW IPs have many CSRs (Control & Status Registers) for the CPU to control the IPs.
 Developing a HDL (e.g., Verilog) module for the CSR is a tedious and error-prone job, and documenting the design often lead to a mismatch between the actual design and the documentation.
 
-Register automation can replace the human efforts in CSR management.
-[SystemRDL](https://www.accellera.org/downloads/standards/systemrdl) is a register description language for register automation, and [peakRDL](https://peakrdl.readthedocs.io/) is an open-source tool to generate various outputs (e.g., HDL design, UVM, documents) from systemRDL.
+Register automation can replace the human efforts in CSR management. SystemRDL is a Register Description Language (RDL) for register automation, and peakRDL is an open-source toolchain to generate various outputs (e.g., Verilog design, UVM classes, html documents) from system RDL.
 
-[A brief introduction to register automation](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/Register%20Automation.pdf)
-
-[SystemRDL example for a DMA controller](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/dmac.rdl)
+A few resources
+- [SystemRDL standard](https://www.accellera.org/downloads/standards/systemrdl)
+- [PeakRDL](https://peakrdl.readthedocs.io/)
+- [PeakRDL-regblock](https://peakrdl-regblock.readthedocs.io/)
+- [A brief introduction to register automation](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/Register%20Automation.pdf)
+- [SystemRDL example for a DMA controller](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/dmac.rdl)
 
 # GitHub Action
 
@@ -39,7 +41,7 @@ Supported options are ```apb3, apb3_flat, apb4, apb4-flat, axi4_lite, axi4_lite_
 
 ## out (optional)
 
-The file name for the generated output Verilog file.
+The directory name for the generated output Verilog file. The filename will be the same as the top-level addressMap name with .sv extension.
 
 # Local Action
 
