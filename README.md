@@ -50,7 +50,13 @@ inputs:
     type: string
     required: false
 
-...
+runs:
+  using: composite
+  steps:
+    - run: rtl-actions/bin/action.lint \
+           ${{ inputs.filelist  && '--filelist inputs.filelist' || '' }} \
+           ${{ inputs.top && '--top inputs.top' || '' }}
+      shell: bash
 ```
 
 And a HW_IP_REPO can have the following workflow in .github/workflows/lint-spyglass.yml
