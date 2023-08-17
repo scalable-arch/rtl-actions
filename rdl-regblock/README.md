@@ -1,9 +1,9 @@
 # Register Automation
 
 Most HW IPs have many CSRs (Control & Status Registers) for the CPU to control the IPs.
-Developing a HDL (e.g., Verilog) module for the CSR is a tedious and error-prone job, and documenting the design often lead to a mismatch between the actual design and the documentation.
+Developing a HDL (e.g., Verilog) module for the CSR is a tedious and error-prone job, and documenting the design often lead to a mismatch between the actual design and the documentation. To make life even harder, a change in a CSR often requires corresponding modifications to UVM verification codes and firmware.
 
-Register automation can replace the human efforts in CSR management. SystemRDL is a Register Description Language (RDL) for register automation, and peakRDL is an open-source toolchain to generate various outputs (e.g., Verilog design, UVM classes, html documents) from system RDL.
+Register automation can eliminate most of the human efforts in CSR management. SystemRDL is a Register Description Language (RDL) for register automation, and peakRDL is an open-source toolchain to generate various outputs (e.g., Verilog design, UVM classes, html documents) from system RDL.
 
 A few resources
 - [SystemRDL standard](https://www.accellera.org/downloads/standards/systemrdl)
