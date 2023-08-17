@@ -29,7 +29,7 @@ $ git push
 
 # Actions
 
-rtl-actions serve two use cases: GitHub Actions and Command Line Interface (CLI).
+```rtl-actions``` serve two use cases: GitHub Actions and Command Line Interface (CLI).
 
 ## GitHub Actions
 
