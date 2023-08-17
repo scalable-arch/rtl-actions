@@ -1,13 +1,13 @@
-name: 'RTL: lint'
+name: 'RTL:lint'
 description: 'Lint test (checking programmatic and stylistic errors) using Synopsys Spyglass with sign-off rules'
 author: 'Jungrae Kim <dale40@gmail.com>'
 
 inputs:
-  design_filelist:
+  filelist:
     description: "The path to the filelist containing all the design file. The path is relative to the root of the repository"
     type: string
     required: false
-  design_top:
+  top:
     description: "The name of the top-level design"
     type: string
     required: false
@@ -16,6 +16,6 @@ runs:
   using: composite
   steps:
     - run: rtl-actions/bin/action.lint \
-           ${{ inputs.design_filelist  && '--filelist inputs.design_filelist' || '' }} \
-           ${{ inputs.design_top && '--top inputs.design_top' || '' }}
+           ${{ inputs.filelist  && '--filelist inputs.filelist' || '' }} \
+           ${{ inputs.top && '--top inputs.top' || '' }}
       shell: bash

@@ -1,0 +1,39 @@
+name: 'RDL:regBlock'
+description: 'Auto-generation of a Verilog design for Control & Status Registers (CSR)'
+author: 'Jungrae Kim <dale40@gmail.com>'
+
+inputs:
+  rdl:
+    type: string
+    required: false
+  cfg:
+    type: string
+    required: false
+  top:
+    description: "The name of the top-level address map"
+    type: string
+    required: false
+  cpuif:
+    description: "The interface used to communicate with CPU"
+    required: true 
+    default: "apb3-flat"
+    type: choice
+    options:
+      - apb3
+      - apb3-flat
+      - apb4
+      - apb4-flat
+      - axi4-lite
+      - axi4-lite-flat
+      - avalon-mm
+      - avalon-mm-flat
+      - passthrough
+    
+runs:
+  using: composite
+  steps:
+    - run: rtl-actions/bin/action.rdl-regblock \
+           --cpuif ${{ cpuif }} \
+           ${{ inputs.filelist  && '--filelist inputs.filelist' || '' }} \
+           ${{ inputs.top && '--top inputs.top' || '' }}
+      shell: bash
