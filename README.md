@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains Github actions for SoC front-end design.
+This repository contains GitHub actions for SoC front-end design.
 
 Most design flows are based on Synopsys EDA tools (e.g., vcs, verdi, spyglass, design compiler). Some flows are based on open-source tools (e.g., peakRDL).
 
