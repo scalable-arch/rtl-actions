@@ -88,7 +88,7 @@ The workflow file will run ```scalable-arch/rtl-actions/lint@main```, which is d
 
 ## Local Actions in CLI
 
-Most ASIC front-end development is conducted in the Linux terminals. In order to provide the same command and results from both GitHub Actions and CLI, rtl-actions use local-action scripts under the bin directory.
+Most ASIC front-end development is conducted in Linux terminals. In order to provide the same commands and results to both GitHub Actions and CLI Actions, `rtl-actions` use the same scripts under the bin directory (GitHub Actions invokes the bin/ scripts in turn).
 
 # Setting Variables and Path
 
