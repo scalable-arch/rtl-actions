@@ -1,0 +1,21 @@
+name: 'RDL:regBlock'
+description: 'Auto-generation of html documents for Control & Status Registers (CSR)'
+author: 'Jungrae Kim <dale40@gmail.com>'
+
+inputs:
+  rdl:
+    description: "Input file containing the register scriptions in systemRDL"
+    type: string
+    required: false
+  top:
+    description: "The name of the top-level address map"
+    type: string
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - run: rtl-actions/bin/action.rdl-html \
+           ${{ inputs.rdl && '--rdl inputs.rdl' || '' }} \
+           ${{ inputs.top && '--top inputs.top' || '' }}
+      shell: bash
