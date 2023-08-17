@@ -10,7 +10,7 @@ Register automation can replace the human efforts in CSR management.
 
 [SystemRDL example for a DMA controller](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/dmac.rdl)
 
-# Action
+# GitHub Action
 
 This action can receive the following inputs.
 
@@ -40,3 +40,25 @@ Supported options are ```apb3, apb3_flat, apb4, apb4-flat, axi4_lite, axi4_lite_
 ## out (optional)
 
 The file name for the generated output Verilog file.
+
+# Local Action
+
+You can use ```rtl-actions/bin/action.rdl-regblock``` to execute this action from a Command Line Interface (CLI).
+
+This action can receive the following inputs.
+
+## --rdl (optional)
+
+Same as rdl in the GitHub action
+
+## --cfg (optional)
+
+Same as cfg in the GitHub action
+
+## --top (optional)
+
+Same as top in the GitHub action
+
+## --out (optional)
+
+Same as out in the GitHub action
