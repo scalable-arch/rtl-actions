@@ -12,7 +12,7 @@ For more details of github submodule, refer to [Git - Submodules](https://git-sc
 
 # HW IP repository
 
-(We will refer HW_IP_REPO as an example of HW IP repositories using rtl-actions as a submodule. You can check an [example](https://github.com/scalable-arch/AIDCLite) on GitHub.
+(We will refer HW_IP_REPO to represent a HW IP repository using rtl-actions as a submodule. You can check an [example](https://github.com/scalable-arch/AIDCLite) on GitHub.)
 
 To instantiate this repository as a submodule of HW_IP_REPO, type the following command under the top directory of HW_IP_REPO
 
