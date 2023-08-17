@@ -1,4 +1,4 @@
-# rtl-actions
+# Introduction
 
 This repository contains Github actions for SoC front-end design.
 
