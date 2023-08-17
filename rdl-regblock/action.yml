@@ -30,6 +30,10 @@ inputs:
       - avalon-mm
       - avalon-mm-flat
       - passthrough
+  out:
+    description: "The output file name"
+    type: string
+    required: false
     
 runs:
   using: composite
@@ -38,5 +42,6 @@ runs:
            ${{ inputs.rdl && '--rdl inputs.rdl' || '' }} \
            ${{ inputs.cfg && '--cfg inputs.cfg' || '' }} \
            ${{ inputs.top && '--top inputs.top' || '' }} \
+           ${{ inputs.out && '--out inputs.out' || '' }} \
            --cpuif ${{ inputs.cpuif }};
       shell: bash

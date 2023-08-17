@@ -2,6 +2,7 @@
 
 # default value
 export RDL_CPUIF=apb3-flat
+export RDL_OUT=${WORKING_DIR}/design/sverilog
 
 ############################################################
 # Source environment files
@@ -34,7 +35,7 @@ done
 ############################################################
 # Command line argument processing
 ############################################################
-TEMP=$(getopt --options r:c:t: --longoptions rdl:,cfg:,top:,cpuif: -- "$@")
+TEMP=$(getopt --options r:c:t: --longoptions rdl:,cfg:,top:,cpuif:,out: -- "$@")
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 
 eval set -- "$TEMP"
@@ -45,6 +46,7 @@ while true; do
     -c | --cfg ) export RDL_CFG="$2"; shift 2 ;;
     -t | --top ) export RDL_TOP="$2"; shift 2 ;;
     --cpuif ) export RDL_CPUIF="$2"; shift 2 ;;
+    -o | --out ) export RDL_OUT="$2"; shift 2 ;;
     -- ) shift; break ;;
     * ) echo "Unsupported option $1" >&2; exit 1 ;;
   esac
@@ -62,5 +64,6 @@ echo "  - rdl=${RDL_RDL}"
 echo "  - cfg=${RDL_CFG}"
 echo "  - top=${RDL_TOP}"
 echo "  - cpuif=${RDL_CPUIF}"
+echo "  - out=${RDL_OUT}"
 
-peakrdl regblock ${RDL_RDL} --peakrdl-cfg ${RDL_CFG} --top ${RDL_TOP} --cpuif ${RDL_CPUIF} -o ${WORKING_DIR}/design/sverilog
+peakrdl regblock ${RDL_RDL} --peakrdl-cfg ${RDL_CFG} --top ${RDL_TOP} --cpuif ${RDL_CPUIF} -o ${RDL_OUT}
