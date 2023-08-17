@@ -38,8 +38,8 @@ eval set -- "$TEMP"
 
 while true; do
   case "$1" in
-    -f | --filelist ) echo "AA"; export DESIGN_FILELIST="$2"; shift 2 ;;
-    -t | --top ) echo "BB"; export DESIGN_TOP="$2"; shift 2 ;;
+    -f | --filelist ) export DESIGN_FILELIST="$2"; shift 2 ;;
+    -t | --top ) export DESIGN_TOP="$2"; shift 2 ;;
     -- ) shift; break ;;
     * ) echo "Unsupported option $1" >&2; exit 1 ;;
   esac
@@ -76,7 +76,7 @@ cd work.lint
 ############################################################
 # Main
 ############################################################
-echo "Executing Lint using "
+echo "Executing Lint, using "
 echo "  - filelist=$DESIGN_FILELIST"
 echo "  - top=$DESIGN_TOP"
 

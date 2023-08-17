@@ -11,7 +11,7 @@ inputs:
     required: false
   top:
     description: "The name of the top-level address map"
-    type: string[]
+    type: string
     required: false
   cpuif:
     description: "The interface used to communicate with CPU"
@@ -35,8 +35,9 @@ runs:
     - run: for top in inputs.top; \
             do
               rtl-actions/bin/action.rdl-regblock \
-              --cpuif ${{ cpuif }} \
-              ${{ inputs.filelist  && '--filelist inputs.filelist' || '' }} \
-              ${{ inputs.top && '--top inputs.top' || '' }};
+              ${{ inputs.rdl && '--rdl inputs.rdl' || '' }} \
+              ${{ inputs.cfg && '--cfg inputs.cfg' || '' }} \
+              ${{ inputs.top && '--top inputs.top' || '' }} \
+              --cpuif ${{ inputs.cpuif }};
            done
       shell: bash
