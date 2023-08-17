@@ -36,7 +36,7 @@ rtl-actions serve two use cases: GitHub Actions and Command Line Interface (CLI)
 For GitHub Actions, we provide action.yml files under some of the top-level folders (e.g., lint, rdl-html, rdl-regblock). GitHub workflows can use these top-level folder names as an action. The action.yml files define input arguments and forward the arguments from a GitHub workflow to an action script in the `bin` directory.
 
 For example,
-Under ```lint``` folder, we have the following action.yml.
+Under ```lint``` folder, we have the following ```action.yml```.
 ```
 name: 'RTL:lint'
 
