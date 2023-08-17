@@ -6,4 +6,5 @@ Developing a HDL (e.g., Verilog) module for the CSR is a tedious and error-prone
 [SystemRDL](https://www.accellera.org/downloads/standards/systemrdl) is a register description language, and [peakRDL](https://peakrdl.readthedocs.io/) is an open-source tool to generate various outputs (e.g., HDL design, UVM, documents) from systemRDL.
 
 [A brief introduction to register automation](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/Register%20Automation.pdf)
+
 [SystemRDL example for a DMA controller](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/dmac.rdl)
