@@ -49,18 +49,18 @@ You can use ```rtl-actions/bin/action.rdl-regblock``` to execute this action fro
 
 This action can receive the following inputs.
 
-## --rdl (optional)
+## --rdl *systemrdl_file_location* (optional)
 
 Same as rdl in the GitHub action
 
-## --cfg (optional)
+## --cfg *cfg_file_location* (optional)
 
 Same as cfg in the GitHub action
 
-## --top (optional)
+## --top *top_level_address_map_name* (optional)
 
 Same as top in the GitHub action
 
-## --out (optional)
+## --out *output_directory_name* (optional)
 
 Same as out in the GitHub action
