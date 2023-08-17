@@ -10,7 +10,7 @@ A few resources
 - [PeakRDL](https://peakrdl.readthedocs.io/)
 - [PeakRDL-regblock](https://peakrdl-regblock.readthedocs.io/)
 - [A brief introduction to register automation](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/Register%20Automation.pdf)
-- [SystemRDL example for a DMA controller](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/dmac.rdl)
+- [An example for a DMA controller](https://github.com/scalable-arch/rtl-actions/blob/main/rdl-regblock/docs/dmac.rdl)
 
 # GitHub Action
 
