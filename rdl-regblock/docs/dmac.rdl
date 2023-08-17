@@ -1,0 +1,52 @@
+addrmap
+{
+    name = "DMA controller address map";
+    desc = "Address map of a DMA controller for SKKU ECE4278";
+    default accesswidth=32;             // 32-bit data access
+
+    reg
+    {
+        field {
+            sw = r;
+            hw = na;
+            reset = 32'h0001_01_01;
+            desc = "The version of this DMA controller.The upper 16 bits represent the major version. The middle 8 bits represent the minor version. The lowest 8 bits represent the micro version.";
+        } version;
+    } DMAC_VER @0x0;
+
+    reg
+    {
+        field {
+            sw = rw;
+            hw = r;
+            reset = 32'h0000_0000;
+            desc = "The start address of source range";
+        } start_addr[31:0];
+    } DMA_SRC @0x100;
+    reg
+    {
+        field {
+            sw = rw;
+            hw = r;
+            reset = 32'h0000_0000;
+            desc = "The start address of destination range";
+        } start_addr[31:0];
+    } DMA_DST @0x104;
+    reg
+    {
+        field {
+            sw = rw;
+            hw = r;
+            reset = 12'h000;
+            desc = "The number of byte to be transferred from the source to the destination";
+        } byte_len[11:0];
+    } DMA_LEN @0x108;
+    reg
+    {
+        field {
+            sw = w;
+            //hw = ;
+            desc = "Writing 1 to this field will initiate a DMA transfer.";
+        } start[0];
+    } DMA_CMD @0x108;
+} DMA;
