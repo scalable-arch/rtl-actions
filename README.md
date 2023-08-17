@@ -8,7 +8,7 @@ Most design flows are based on Synopsys EDA tools (e.g., vcs, verdi, spyglass, d
 
 This repository can be used as a submodule of a HW IP repository.
 
-For more details of github submodule, refer to [Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+For more details of git submodule, refer to [Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 # HW IP repository
 
