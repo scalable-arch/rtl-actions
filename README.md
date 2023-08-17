@@ -95,3 +95,19 @@ Most ASIC front-end development is conducted in Linux terminals. In order to pro
 When you execute an action in a command line interface (CLI)
 When you execute an action on the command line interface (CLI), the action script will first try to find ```env.source``` (a bash script file) starting from the root directory to your current working directory (e.g., /env.source, /home/env.source, /home/dale40/env.source, /home/dale40/HW_IP_REPO/env.source
 When you execute an action, ir
+
+# Register Automation using SystemRDL
+
+Refer to [github.com/scalable-arch/rtl-actions/rdl-regblock]
+
+# RTL Design
+
+Refer to [github.com/scalable-arch/rtl-actions/sim]
+
+# Linting RTL
+
+Refer to [github.com/scalable-arch/rtl-actions/lint]
+
+# Synthsizing RTL
+
+Refer to [github.com/scalable-arch/rtl-actions/syn]
