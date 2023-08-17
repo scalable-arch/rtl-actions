@@ -92,8 +92,7 @@ Most ASIC front-end development is conducted in Linux terminals. In order to pro
 
 # Setting Variables and Path
 
-When you execute an action in a command line interface (CLI)
-When you execute an action on the command line interface (CLI), the action script will first try to find ```env.source``` (a bash script file) starting from the root directory to your current working directory (e.g., /env.source, /home/env.source, /home/dale40/env.source, /home/dale40/HW_IP_REPO/env.source
+When you execute an action in a command line interface (CLI), the action script will first try to find ```env.source``` (a bash script file) starting from the root directory to your current working directory (e.g., /env.source, /home/env.source, /home/dale40/env.source, /home/dale40/HW_IP_REPO/env.source
 When you execute an action, ir
 
 # Register Automation using SystemRDL
