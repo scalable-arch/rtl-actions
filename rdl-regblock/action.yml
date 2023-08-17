@@ -32,8 +32,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: rtl-actions/bin/action.rdl-regblock \
-           --cpuif ${{ cpuif }} \
-           ${{ inputs.filelist  && '--filelist inputs.filelist' || '' }} \
-           ${{ inputs.top && '--top inputs.top' || '' }}
+    - run: for top in inputs.top; \
+            do
+              rtl-actions/bin/action.rdl-regblock \
+              --cpuif ${{ cpuif }} \
+              ${{ inputs.filelist  && '--filelist inputs.filelist' || '' }} \
+              ${{ inputs.top && '--top inputs.top' || '' }};
+           done
       shell: bash
