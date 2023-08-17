@@ -58,8 +58,9 @@ runs:
            ${{ inputs.top && '--top inputs.top' || '' }}
       shell: bash
 ```
+This yaml script under lint directory, defines as GitHub action, which can be accessed by ```scalable-arch/rtl-actions/lint@main```. It also describes two optional input arguments (filelist and top), which GitHub action can provide. When invoked by GitHub Action, it executes `rtl-actions/bin/action.lint` with argument forwarding (```A && B || C``` operates as a ternary operator in yaml).
 
-And a HW_IP_REPO can have the following workflow in .github/workflows/lint-spyglass.yml
+And a HW_IP_REPO can have the following workflow defined in .github/workflows/lint-spyglass.yml
 ```
 name: Lint-Spyglass-RTL-Handoff
 run-name: Spyglass Lint for an IP-level RTL handoff from ${{ github.actor }}
