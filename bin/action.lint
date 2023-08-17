@@ -8,6 +8,8 @@ file="env.source"
 
 # Starting from the root to present working directory,
 # traverse directories and source the env files (/, /aa, /aa/bb, ...)
+
+# bottom-up traversal
 while true; do
     array+=("$path")
     if [[ $path =~ ^(/|[^/]+)$ ]]; then
@@ -18,6 +20,7 @@ while true; do
         path="${path%/*}"
     fi
 done
+# top-down traversal
 for (( i=${#array[@]}-1; i>=0; i-- )); do
     p="${array[$i]}"
     if [[ -f "$p/$file" ]]; then
@@ -43,6 +46,27 @@ while true; do
 done
 
 ############################################################
+# Check mandatory variables
+############################################################
+if [ -z $SPYGLASS_HOME ];
+then
+    echo "Environment variable SPYGLASS_HOME is not set";
+    exit 1;
+fi
+
+if [ -z $DESIGN_FILELIST ];
+then
+    echo "Environment variable DESIGN_FILELIST is not set";
+    exit 1;
+fi
+
+if [ -z $DESIGN_TOP ];
+then
+    echo "Environment variable DESIGN_TOP is not set";
+    exit 1;
+fi
+
+############################################################
 # Create working directory
 ############################################################
 \rm -rf work.lint
@@ -52,14 +76,14 @@ cd work.lint
 ############################################################
 # Main
 ############################################################
-echo "Executing Lint using filelist=$DESIGN_FILELIST, top=$DESIGN_TOP"
+echo "Executing Lint using "
+echo "  - filelist=$DESIGN_FILELIST"
+echo "  - top=$DESIGN_TOP"
 
 cat << EOF > rtl_signoff.tcl
-#
-set PROJECT_NAME LINT_RTL_HANDOFF.${DESIGN_TOP}
 
 # Create a new project
-new_project \${PROJECT_NAME}
+new_project LINT_RTL_HANDOFF.${DESIGN_TOP}
     
 # Rules for RTL handoff
 current_methodology ${SPYGLASS_HOME}/GuideWare/latest/block/rtl_handoff
@@ -88,12 +112,11 @@ compile_design
 current_goal lint/lint_rtl
 run_goal
     
-save_project
-    
 # Create reports
 exec mkdir -p reports
 write_report -reportdir reports project_summary
 write_report -reportdir reports moresimple > reports/moresimple.rpt
+
 save_project
 
 EOF
