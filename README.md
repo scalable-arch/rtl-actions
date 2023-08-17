@@ -98,16 +98,16 @@ When you execute an action, ir
 
 # Register Automation using SystemRDL
 
-Refer to [github.com/scalable-arch/rtl-actions/rdl-regblock]
+Refer to [https://github.com/scalable-arch/rtl-actions/rdl-regblock]
 
 # RTL Design
 
-Refer to [github.com/scalable-arch/rtl-actions/sim]
+Refer to [https://github.com/scalable-arch/rtl-actions/sim]
 
 # Linting RTL
 
-Refer to [github.com/scalable-arch/rtl-actions/lint]
+Refer to [https://github.com/scalable-arch/rtl-actions/lint]
 
 # Synthsizing RTL
 
-Refer to [github.com/scalable-arch/rtl-actions/syn]
+Refer to [https://github.com/scalable-arch/rtl-actions/syn]
