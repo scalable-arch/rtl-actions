@@ -4,7 +4,7 @@ author: 'Jungrae Kim <dale40@gmail.com>'
 
 inputs:
   rdl:
-    description: "Input file containing the register scriptions in systemRDL"
+    description: "Input file containing the register descriptions in systemRDL"
     type: string
     required: false
   cfg:
