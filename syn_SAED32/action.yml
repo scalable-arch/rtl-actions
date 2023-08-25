@@ -6,7 +6,7 @@ runs:
   using: composite
   steps:
     - name: export environment variable and run synthesis 
-    - run: |
+      run: |
         source ${{github.workspace}}/env.source ${{github.workspace}}
         ${{github.workspace}}/rtl-actions/bin/action.syn_SAED32
       shell: bash
