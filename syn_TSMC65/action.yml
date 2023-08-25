@@ -5,7 +5,8 @@ author: 'Boyul Choi <gju06051@gmail.com>'
 runs:
   using: composite
   steps:
-    - run: |
+    - name: export environment variable and run synthesis 
+      run: |
         source ${{github.workspace}}/env.source ${{github.workspace}}
         ${{github.workspace}}/rtl-actions/bin/action.syn_TSMC65
       shell: bash
