@@ -6,14 +6,14 @@ runs:
   using: composite
   steps:
     - name: Report (Design)                     
-      run: cat ${SYN_OUT}/*.design.rpt
+      run: cat ${{github.workspace}}/work.syn/*.design.rpt
       shell: bash
     - name: Report (Timing)
-      run: cat ${SYN_OUT}/*.timing.rpt
+      run: cat ${{github.workspace}}/work.syn/*.timing.rpt
       shell: bash
     - name: Report (Area)
-      run: cat ${SYN_OUT}/*.area.rpt
+      run: cat ${{github.workspace}}/work.syn/*.area.rpt
       shell: bash
     - name: Report (Power)
-      run: cat ${SYN_OUT}/*.power.rpt
+      run: cat ${{github.workspace}}/work.syn/*.power.rpt
       shell: bash

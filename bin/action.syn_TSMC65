@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # $@: forward all input arguments to VCS
-export SYN_OUT=./work.syn
+export SYN_OUT=${WORKING_DIR}/work.syn
 \rm -rf ${SYN_OUT}
 mkdir -p ${SYN_OUT}
 cd ${SYN_OUT}
