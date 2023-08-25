@@ -42,9 +42,9 @@ runs:
       run: |
         source ${{github.workspace}}/env.source ${{github.workspace}}
         ${{github.workspace}}/rtl-actions/bin/action.rdl-regblock \
-          ${{ inputs.rdl && '--rdl' + inputs.rdl || '' }} \
-          ${{ inputs.cfg && '--cfg' + inputs.cfg || '' }} \
-          ${{ inputs.top && '--top' + inputs.top || '' }} \
-          ${{ inputs.out && '--out' + inputs.out || '' }} \
+          ${{ inputs.rdl && '--rdl $inputs.rdl' || '' }} \
+          ${{ inputs.cfg && '--cfg $inputs.cfg' || '' }} \
+          ${{ inputs.top && '--top $inputs.top' || '' }} \
+          ${{ inputs.out && '--out $inputs.out' || '' }} \
           --cpuif ${{ inputs.cpuif }}
       shell: bash
