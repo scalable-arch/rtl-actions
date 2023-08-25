@@ -1,0 +1,11 @@
+name: 'RTL:syn_UMC28'
+description: 'synthesize the design using VCS UMC28 and generate report'
+author: 'Boyul Choi <gju06051@gmail.com>'
+
+runs:
+  using: composite
+  steps:
+    - run: |
+        source ${{github.workspace}}/env.source ${{github.workspace}}
+        ${{github.workspace}}/rtl-actions/bin/action.syn_UMC28
+      shell: bash
