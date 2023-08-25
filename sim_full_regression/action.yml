@@ -1,0 +1,11 @@
+name: 'SIM:full_regression'
+description: 'run all regression simulations'
+author: 'Boyul Choi <gju06051@gmail.com>'
+
+runs:
+  using: composite
+  steps:
+    - run: |
+        source ${{github.workspace}}/env.source ${{github.workspace}}
+        ${{github.workspace}}/rtl-actions/bin/action.sim
+      shell: bash
