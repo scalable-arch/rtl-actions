@@ -40,7 +40,6 @@ runs:
   steps:
     - name: Run RDL-regBlock
       run: |
-        source ${{github.workspace}}/env.source ${{github.workspace}}
         ${{github.workspace}}/rtl-actions/bin/action.rdl-regblock \
           ${{ inputs.rdl && '--rdl $inputs.rdl' || '' }} \
           ${{ inputs.cfg && '--cfg $inputs.cfg' || '' }} \

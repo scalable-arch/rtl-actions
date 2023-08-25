@@ -2,7 +2,6 @@
 
 # default value
 export RDL_CPUIF=apb3-flat
-export RDL_OUT=${WORKING_DIR}/design/sverilog
 
 ############################################################
 # Source environment files
