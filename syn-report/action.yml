@@ -1,0 +1,19 @@
+name: 'RTL:syn-report'
+description: 'print the synthesized design report to github action console'
+author: 'Boyul Choi <gju06051@gmail.com>'
+
+runs:
+  using: composite
+  steps:
+    - name: Report (Design)                     
+      run: cat ${SYN_OUT}/*.design.rpt
+      shell: bash
+    - name: Report (Timing)
+      run: cat ${SYN_OUT}/*.timing.rpt
+      shell: bash
+    - name: Report (Area)
+      run: cat ${SYN_OUT}/*.area.rpt
+      shell: bash
+    - name: Report (Power)
+      run: cat ${SYN_OUT}/*.power.rpt
+      shell: bash

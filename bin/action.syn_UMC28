@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# $@: forward all input arguments to VCS
+\rm -rf work.syn
+mkdir work.syn
+cd work.syn
+dc_shell-xg-t < ${ACTION_HOME}/syn/UMC28.tcl
+cd ..

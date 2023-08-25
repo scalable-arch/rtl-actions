@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# $@: forward all input arguments to VCS
+export SYN_OUT=./work.syn
+\rm -rf ${SYN_OUT}
+mkdir -p ${SYN_OUT}
+cd ${SYN_OUT}
+dc_shell-xg-t < ${WORKING_DIR}/rtl-actions/tcl/syn/TSMC65.tcl
+cd ${WORKING_DIR}
