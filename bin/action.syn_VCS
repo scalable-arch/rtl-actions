@@ -4,5 +4,5 @@
 \rm -rf ${SYN_OUT}
 mkdir -p ${SYN_OUT}
 cd ${SYN_OUT}
-dc_shell-xg-t < ${WORKING_DIR}/rtl-actions/tcl/syn/TSMC65.tcl
+dc_shell-xg-t < ${WORKING_DIR}/rtl-actions/tcl/syn/${PROCESS}.tcl
 cd ${WORKING_DIR}
