@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# $@: forward all input arguments to VCS
+vcs -full64 -kdb -debug_access+all -LDFLAGS -Wl,--no-as-needed -sverilog +define+UNIT_SIM -f $DESIGN_FILELIST -f $TB_FILELIST $@

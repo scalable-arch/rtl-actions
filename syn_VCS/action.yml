@@ -1,0 +1,32 @@
+name: 'RTL:syn_VCS'
+description: 'synthesize the design using VCS TSMC65 and generate report'
+author: 'Boyul Choi <gju06051@gmail.com>'
+
+# Inputs of the action
+inputs:
+  process:
+    description: "The process of the target technology"
+    required: false
+    default: "TSMC65"
+    type: choice
+    option:
+      - TSMC65
+      - UMC28
+      - SAED32
+  out:
+    description: "The output file path"
+    required: false
+    default: $${{github.workspace}}/work.syn
+    type: string
+    
+runs:
+  # grouping steps into a composite action
+  using: composite
+  steps:
+    - name: export environment variable and run synthesis 
+      run: |
+        source ${{github.workspace}}/env.source ${{github.workspace}}
+        export PROCESS=${{inputs.process}}
+        export SYN_OUT=${{inputs.out}}
+        ${{github.workspace}}/rtl-actions/bin/action.syn_VCS
+      shell: bash
