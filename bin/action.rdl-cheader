@@ -1,0 +1,62 @@
+#!/bin/bash
+
+############################################################
+# Source environment files
+############################################################
+path=$PWD
+file="env.source"
+
+RDL_OUT=sim/cheader
+# Starting from the root to present working directory,
+# traverse directories and source the env files (/, /aa, /aa/bb, ...)
+
+# bottom-up traversal
+while true; do
+    array+=("$path")
+    if [[ $path =~ ^(/|[^/]+)$ ]]; then
+        break
+    elif [[ $path =~ ^/[^/]+$ ]]; then
+        path="/"
+    else
+        path="${path%/*}"
+    fi
+done
+# top-down traversal
+for (( i=${#array[@]}-1; i>=0; i-- )); do
+    p="${array[$i]}"
+    if [[ -f "$p/$file" ]]; then
+        source $p/$file
+    fi
+done
+
+############################################################
+# Command line argument processing
+############################################################
+TEMP=$(getopt --options r:t: --longoptions rdl:,top: -- "$@")
+if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
+
+eval set -- "$TEMP"
+
+while true; do
+  case "$1" in
+    -r | --rdl ) export RDL_RDL="$2"; shift 2 ;;
+    -t | --top ) export RDL_TOP="$2"; shift 2 ;;
+    -o | --out ) export RDL_OUT="$2"; shift 2 ;;
+    -- ) shift; break ;;
+    * ) echo "Unsupported option $1" >&2; exit 1 ;;
+  esac
+done
+
+############################################################
+# Check mandatory variables
+############################################################
+
+############################################################
+# Main
+############################################################
+echo "Executing RDL-cheader, using"
+echo "  - rdl=${RDL_RDL}"
+echo "  - top=${RDL_TOP}"
+echo "  - out=${RDL_OUT}"
+
+peakrdl_cheader ${RDL_RDL} --top ${RDL_TOP} --outdir ${WORKING_DIR}/${RDL_OUT}
