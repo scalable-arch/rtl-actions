@@ -1,0 +1,26 @@
+name: 'RDL:C-header'
+description: 'Auto-generation of C macros for Control & Status Registers (CSR)'
+author: 'Jungrae Kim <dale40@gmail.com>'
+
+inputs:
+  rdl:
+    description: "Input file containing the register scriptions in systemRDL"
+    type: string
+    required: false
+  top:
+    description: "The name of the top-level address map"
+    type: string
+    required: false
+  out:
+    description: "The output file name"
+    type: string
+    required: false
+    
+runs:
+  using: composite
+  steps:
+    - run: rtl-actions/bin/action.rdl-cheader \
+           ${{ inputs.rdl && '--rdl inputs.rdl' || '' }} \
+           ${{ inputs.top && '--top inputs.top' || '' }} \
+           ${{ inputs.out && '--out inputs.out' || '' }}
+      shell: bash
